@@ -21,7 +21,8 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
-          context: .
+          context: Lab-03-Capas
+          dockerfile: Lab-03-Capas/Dockerfile
           push: true
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/sheikah-register:latest
