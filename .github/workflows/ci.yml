@@ -9,6 +9,9 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Lab-03-Capas
     steps:
       - name: code-checkout
         uses: actions/checkout@v4
@@ -28,11 +31,14 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: test-results
-          path: target/surefire-reports/
+          path: Lab-03-Capas/target/surefire-reports/
 
   smoke-test-compose:
     needs: build-and-test
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Lab-03-Capas
     steps:
       - name: code-checkout
         uses: actions/checkout@v4
